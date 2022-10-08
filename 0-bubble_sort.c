@@ -3,32 +3,31 @@
 #include "sort.h"
 
 /**
-* bubble_sort - function to sort an integer array in
-* ascending order
-*
-* @array: the input array
-* @size: size of the array
-*
-* Return: always nothing
-*/
+ * bubble_sort - function to sort an integer array in
+ * ascending order
+ *
+ * @array: the input array
+ * @size: size of the array
+ *
+ * Return: always nothing
+ */
 
 void bubble_sort(int *array, size_t size)
 {
-int swap_variable;
-size_t iterator, i;
+  int swap_variable;
+  size_t i, j;
 
-for (iterator = 0; iterator < size - 1; ++iterator)
-{
-/*Loop through and compare elements*/
-for (i = 0; i < size - (iterator - 1); ++i)
-{
-/*change > to < for descending order*/
-if (array[i] > array[i + 1])
-{
-swap_variable = array[i];
-array[i] = array[i + 1];
-array[i + 1] = swap_variable;
-}
-}
-}
+  for (i = 0; i < size - 1; ++i)
+  {
+    for (j = 0; j < size - i - 1; ++j)
+    {
+      if (array[j] > array[j + 1])
+      {
+        swap_variable = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = swap_variable;
+      }
+    }
+    print_array(array, size);
+  }
 }
